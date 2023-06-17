@@ -26,11 +26,11 @@ const authSlice = createSlice({
       return { ...state, currentUser: payload };
     },
     [registerThunk.fulfilled]: (state, { payload }) => {
+      console.log("register thunk payload is: " + JSON.stringify(payload));
       state.currentUser = payload;
     },
     [loginThunk.fulfilled]: (state, { payload }) => {
-      // alert("login state.currentUser update getting called here");
-      // console.log(payload);
+      console.log("login thunk payload is: " + JSON.stringify(payload));
       state.currentUser = payload;
     },
   },
