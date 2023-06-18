@@ -25,17 +25,18 @@ function ProfileScreen() {
   };
 
   useEffect(() => {
-    if (!currentUser) {
+    if (!currentUser && !profile) {
       // Redirect user to the login screen if user is not logged in
       navigate("/login");
-    } else {
+    } else if (currentUser && !profile) {
       const fetchData = async () => {
         const { payload } = await dispatch(profileThunk());
         setProfile(payload);
       };
       fetchData();
     }
-  }, [currentUser, dispatch, navigate]);
+  }, [currentUser, profile, dispatch, navigate]);
+  // }, [currentUser, dispatch, navigate]);
 
   // useEffect(async () => {
   //   const { payload } = await dispatch(profileThunk());
@@ -44,7 +45,7 @@ function ProfileScreen() {
   // console.log(profile);
   return (
     <div className="row">
-      <div className="col-md-12 mb-4">
+      <div className="col-md-12">
         <div>
           <h1>Personal Information</h1>
           {profile && (
@@ -93,11 +94,11 @@ function ProfileScreen() {
           <button onClick={save}>Save </button>
         </div>
       </div>
-      <div className="container mb-4">
+      <div className="container">
         <div className="col-12">People they are following</div>
       </div>
-      <div className="container mb-4">
-        <div className="col-12">People that are following them</div>
+      <div className="container">
+        <div className="col-12">People that are following them </div>
       </div>
     </div>
   );

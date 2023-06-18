@@ -13,6 +13,8 @@ import SearchScreen from "./search-screen";
 import LoginScreen from "./login-screen";
 import RegisterScreen from "./register-screen";
 
+import GetUserByIdPage from "./users-screen";
+
 import store from "../src/store.js";
 
 import Nav from "./nav";
@@ -42,7 +44,7 @@ function App() {
                   <Route path="/" element={<Navigate to="/home" />} />
                   <Route path="/home" element={<HomeScreen />} />
                   <Route path="/Profile" element={<ProfileScreen />} />
-                  <Route path="/Profile/:uid" element={<ProfileScreen />} />
+                  <Route path="/Profile/:uid" element={<GetUserByIdPage />} />
                   <Route path="/Search" element={<SearchScreen />} />
                   <Route path="/login" element={<LoginScreen />} />
                   <Route path="/register" element={<RegisterScreen />} />

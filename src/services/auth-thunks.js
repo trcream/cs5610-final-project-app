@@ -34,3 +34,13 @@ export const registerThunk = createAsyncThunk(
     return user;
   }
 );
+
+//Thunk to get user by their unique id
+
+export const getUserByIdThunk = createAsyncThunk(
+  "user/getUserById",
+  async (userId) => {
+    const user = await authService.getUserById(userId);
+    return user;
+  }
+);

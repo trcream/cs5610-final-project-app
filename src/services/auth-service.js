@@ -64,3 +64,10 @@ export const register = async ({
   const user = response.data;
   return user;
 };
+
+// service to get user by their unique id
+export const getUserById = async (userId) => {
+  const response = await api.get(`${USERS_URL}/${userId}`);
+  const user = response.data;
+  return user;
+};
