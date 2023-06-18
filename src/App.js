@@ -22,15 +22,16 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <div className="container">
-          <div className="mx-13">
-            <Nav />
-            {/* <div className="col-12 d-flex justify-content-center">
+          <div className="col-13 d-flex justify-content-center">
             <img
-              src="./images/banner-testing.jpeg"
+              src="./images/movie-banner-1300-cropped.png"
               alt="Banner"
               className="img-fluid"
+              style={{ maxHeight: "250px" }}
             />
-          </div> */}
+          </div>
+          <div className="mx-13">
+            <Nav />
             <div className="row"></div>
             <div className="row">
               <div className="col-2">
@@ -41,6 +42,7 @@ function App() {
                   <Route path="/" element={<Navigate to="/home" />} />
                   <Route path="/home" element={<HomeScreen />} />
                   <Route path="/Profile" element={<ProfileScreen />} />
+                  <Route path="/Profile/:uid" element={<ProfileScreen />} />
                   <Route path="/Search" element={<SearchScreen />} />
                   <Route path="/login" element={<LoginScreen />} />
                   <Route path="/register" element={<RegisterScreen />} />

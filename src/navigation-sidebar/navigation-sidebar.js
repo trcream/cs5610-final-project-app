@@ -7,6 +7,7 @@ import {
   faSearch,
   faFilm,
   faUser,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavigationSidebar = () => {
@@ -18,6 +19,7 @@ const NavigationSidebar = () => {
     { label: "Search", icon: faSearch },
     { label: "Movies", icon: faFilm },
     { label: "Profile", icon: faUser },
+    { label: "Users", icon: faUsers },
   ];
 
   return (
@@ -27,7 +29,7 @@ const NavigationSidebar = () => {
           key={link.label}
           to={`/${link.label}`}
           className={`list-group-item text-capitalize ${
-            active === link.label ? "active" : ""
+            active === link.label ? "active bg-dark" : ""
           }`}
         >
           <FontAwesomeIcon

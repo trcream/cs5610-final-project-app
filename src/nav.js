@@ -5,28 +5,44 @@ function Nav() {
   const { currentUser } = useSelector((state) => state.user);
 
   const firstName = currentUser ? currentUser.firstName : "";
-  alert(`current user is: ${currentUser.userType}`);
+  const userType = currentUser ? currentUser.userType : "";
+
+  console.log(`current user is: ${userType}`);
 
   return (
-    <nav className="nav nav-tabs mb-2">
-      <Link className="nav-link" to="/login">
-        Login
-      </Link>
-      <Link className="nav-link" to="/register">
-        Register
-      </Link>
-      {currentUser && (
-        <Link className="nav-link" to="/tuiter/login">
-          {" "}
-          Logged In{" "}
-        </Link>
-      )}
-      {!currentUser && (
-        <Link className="nav-link" to="/tuiter/login">
-          {" "}
-          Not Logged In{" "}
-        </Link>
-      )}
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ml-auto">
+            {!currentUser && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+            )}
+            <li className="nav-item">
+              <Link className="nav-link" to="/register">
+                Register
+              </Link>
+            </li>
+            {currentUser && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/tuiter/login">
+                  Logged In: {firstName}
+                </Link>
+              </li>
+            )}
+            {!currentUser && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/tuiter/login">
+                  Not Logged In
+                </Link>
+              </li>
+            )}
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 }
