@@ -15,7 +15,7 @@ import RegisterScreen from "./register-screen";
 
 import GetUserByIdPage from "./profile-screen-uid";
 import UserList from "./users-screen";
-
+import ReviewsScreen from "./reviews-screen";
 import store from "../src/store.js";
 
 import Nav from "./nav";
@@ -50,6 +50,7 @@ function App() {
                   <Route path="/login" element={<LoginScreen />} />
                   <Route path="/register" element={<RegisterScreen />} />
                   <Route path="/Users" element={<UserList />} />
+                  <Route path="/Reviews" element={<ReviewsScreen />} />
 
                   {/* Login/ Register here */}
                 </Routes>

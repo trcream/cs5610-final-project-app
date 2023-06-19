@@ -81,6 +81,7 @@ export const followUser = async (uid, otherUserId) => {
       " USERS_URL: " +
       USERS_URL
   );
+
   const response = await api.post(`${USERS_URL}/${uid}/follow/${otherUserId}`);
   return response.data;
 };

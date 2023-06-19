@@ -16,6 +16,7 @@ const UserList = () => {
 
   const handleFollow = (otherUserId) => {
     if (currentUser) {
+      alert("You are following this user.");
       dispatch(followUserThunk({ uid: currentUser._id, otherUserId })).then(
         () => {}
       );

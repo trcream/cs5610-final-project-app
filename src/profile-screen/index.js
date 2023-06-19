@@ -7,6 +7,9 @@ import {
   updateUserThunk,
 } from "../services/auth-thunks";
 
+import FollowedUsersList from "../components/following-component";
+import FollowedByList from "../components/followed-by-component";
+
 function ProfileScreen() {
   const { currentUser } = useSelector((state) => state.user);
   // console.log("current user with state is: ", currentUser);
@@ -105,10 +108,16 @@ function ProfileScreen() {
         </div>
       </div>
       <div className="container p -3">
-        <div className="col-12 mb-2">People they are following</div>
+        <div className="col-12 mb-2">
+          {" "}
+          <FollowedUsersList />
+        </div>
       </div>
       <div className="container">
-        <div className="col-12 mb-2">People that are following them </div>
+        <div className="col-12 mb-2">
+          {" "}
+          <FollowedByList />
+        </div>
       </div>
     </div>
   );

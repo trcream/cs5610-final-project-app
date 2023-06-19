@@ -8,6 +8,7 @@ import {
   faFilm,
   faUser,
   faUsers,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavigationSidebar = () => {
@@ -20,6 +21,7 @@ const NavigationSidebar = () => {
     { label: "Movies", icon: faFilm },
     { label: "Profile", icon: faUser },
     { label: "Users", icon: faUsers },
+    { label: "Reviews", icon: faStar },
   ];
 
   return (
