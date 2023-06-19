@@ -1,11 +1,4 @@
-// REACT_APP_SERVER_API_URL=http://localhost:4000/api
-// This is where data is getting send to the server
-
 import axios from "axios";
-// const SERVER_API_URL = process.env.REACT_APP_SERVER_API_URL;
-
-// const SERVER_API_URL = "https://tuiter-node-server-app-7ua3.onrender.com/api/";
-
 // Use this for local testing
 const SERVER_API_URL = "http://localhost:4000/api/";
 
@@ -70,4 +63,31 @@ export const getUserById = async (userId) => {
   const response = await api.get(`${USERS_URL}/${userId}`);
   const user = response.data;
   return user;
+};
+
+// service to get a list of all the users
+export const findAllUsers = async () => {
+  console.log("Searching for all users " + USERS_URL);
+  const response = await api.get(USERS_URL);
+  return response.data;
+};
+
+export const followUser = async (uid, otherUserId) => {
+  console.log(
+    "User Id: " +
+      uid +
+      " Other User Id: " +
+      otherUserId +
+      " USERS_URL: " +
+      USERS_URL
+  );
+  const response = await api.post(`${USERS_URL}/${uid}/follow/${otherUserId}`);
+  return response.data;
+};
+
+export const unfollowUser = async (uid, otherUserId) => {
+  const response = await api.post(
+    `${USERS_URL}/${uid}/unfollow/${otherUserId}`
+  );
+  return response.data;
 };

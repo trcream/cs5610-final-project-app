@@ -1,42 +1,68 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getUserById } from "../services/auth-service";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { findAllUsersThunk, followUserThunk } from "../services/auth-thunks";
+import { Link } from "react-router-dom";
 
-function GetUserByIdPage() {
-  const { uid } = useParams(); // Extract the user ID from the URL
-  const [user, setUser] = useState(null);
+const UserList = () => {
+  // Use Redux hooks
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.user.users);
+  const currentUser = useSelector((state) => state.user.currentUser);
 
+  // Fetch users when component mounts
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await getUserById(uid);
-        setUser(response);
-      } catch (error) {
-        console.error(error);
-        setUser(null);
-      }
-    };
+    dispatch(findAllUsersThunk());
+  }, [dispatch]);
 
-    fetchUser();
-  }, [uid]);
+  const handleFollow = (otherUserId) => {
+    if (currentUser) {
+      dispatch(followUserThunk({ uid: currentUser._id, otherUserId })).then(
+        () => {}
+      );
+    } else {
+      alert("You must be logged in to follow users.");
+    }
+  };
 
+  // Handle loading and error states
+  if (!users) {
+    return <h1>No Users Found</h1>;
+  }
+
+  // Render the users
   return (
-    <div>
-      <h1>Get User by ID</h1>
-      {user ? (
-        <div>
-          <h2>User Details:</h2>
-          <p>ID: {user._id}</p>
-          <p>Username: {user.username}</p>
-          <p>First Name: {user.firstName}</p>
-          <p>Last Name: {user.lastName}</p>
-          <p>User Type: {user.userType}</p>
-        </div>
-      ) : (
-        <p>No user found</p>
-      )}
+    <div className="container mt-5">
+      <h1 className="text-center">Users</h1>
+      <ul className="list-group">
+        {users.map((user) => (
+          <li
+            key={user._id}
+            className="list-group-item d-flex justify-content-between align-items-start"
+          >
+            <div>
+              UserName: {user.username} <br />
+              First Name: {user.firstName} <br />
+              Last Name: {user.lastName} <br />
+            </div>
+            <div>
+              <button
+                onClick={() => handleFollow(user._id)}
+                className="btn btn-success"
+              >
+                Follow
+              </button>
+              <Link
+                to={`/Profile/${user._id}`}
+                className="btn btn-primary ml-2"
+              >
+                View Profile
+              </Link>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
-export default GetUserByIdPage;
+export default UserList;

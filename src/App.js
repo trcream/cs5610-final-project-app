@@ -13,7 +13,8 @@ import SearchScreen from "./search-screen";
 import LoginScreen from "./login-screen";
 import RegisterScreen from "./register-screen";
 
-import GetUserByIdPage from "./users-screen";
+import GetUserByIdPage from "./profile-screen-uid";
+import UserList from "./users-screen";
 
 import store from "../src/store.js";
 
@@ -48,6 +49,7 @@ function App() {
                   <Route path="/Search" element={<SearchScreen />} />
                   <Route path="/login" element={<LoginScreen />} />
                   <Route path="/register" element={<RegisterScreen />} />
+                  <Route path="/Users" element={<UserList />} />
 
                   {/* Login/ Register here */}
                 </Routes>

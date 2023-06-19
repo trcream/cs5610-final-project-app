@@ -52,11 +52,19 @@ function ProfileScreen() {
             <div>
               <div>
                 <h4> Current User: {profile.username || ""}</h4>
-                <h1> profile.userTypee: {profile.userType} </h1>
-                <label>First Name</label>
+                User Id: {profile._id}
+                <br />
+                User Type: {profile.userType}
+                <br />
+                <br></br>
+                <b>Update Personal Information:</b>
+                <br></br>
+                <label for="first">First Name</label>
                 <input
+                  id="first"
                   type="text"
                   value={profile.firstName}
+                  className="mx-2"
                   onChange={(event) => {
                     const newProfile = {
                       ...profile,
@@ -67,9 +75,11 @@ function ProfileScreen() {
                 />
               </div>
               <div>
-                <label>Last Name</label>
+                <label for="last">Last Name</label>
                 <input
+                  id="last"
                   type="text"
+                  className="mx-2"
                   value={profile.lastName || ""}
                   onChange={(event) => {
                     const newProfile = {
@@ -94,11 +104,11 @@ function ProfileScreen() {
           <button onClick={save}>Save </button>
         </div>
       </div>
-      <div className="container">
-        <div className="col-12">People they are following</div>
+      <div className="container p -3">
+        <div className="col-12 mb-2">People they are following</div>
       </div>
       <div className="container">
-        <div className="col-12">People that are following them </div>
+        <div className="col-12 mb-2">People that are following them </div>
       </div>
     </div>
   );

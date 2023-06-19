@@ -44,3 +44,29 @@ export const getUserByIdThunk = createAsyncThunk(
     return user;
   }
 );
+
+// Thunk to get all users
+export const findAllUsersThunk = createAsyncThunk(
+  "users/findAllUsers",
+  async () => {
+    const users = await authService.findAllUsers();
+    console.log("users are: " + users);
+    return users;
+  }
+);
+
+export const followUserThunk = createAsyncThunk(
+  "user/followUser",
+  async ({ uid, otherUserId }) => {
+    const data = await authService.followUser(uid, otherUserId);
+    return data;
+  }
+);
+
+export const unfollowUserThunk = createAsyncThunk(
+  "user/unfollowUser",
+  async ({ uid, otherUserId }) => {
+    const data = await authService.unfollowUser(uid, otherUserId);
+    return data;
+  }
+);
