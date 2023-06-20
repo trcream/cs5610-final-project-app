@@ -1,13 +1,22 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutThunk } from "./services/auth-thunks";
 
 function Nav() {
   const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const firstName = currentUser ? currentUser.firstName : "";
   const userType = currentUser ? currentUser.userType : "";
 
   console.log(`current user is: ${userType}`);
+
+  const handleLogout = () => {
+    dispatch(logoutThunk());
+    // Refresh the page to reset the state
+    window.location.reload();
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,18 +37,22 @@ function Nav() {
             </li>
             {currentUser && (
               <li className="nav-item">
-                <Link className="nav-link" to="/tuiter/login">
-                  Logged In: {firstName}
-                </Link>
+                <button
+                  className="nav-link btn btn-link"
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </button>
               </li>
             )}
-            {!currentUser && (
-              <li className="nav-item">
-                <Link className="nav-link" to="/tuiter/login">
-                  Not Logged In
-                </Link>
-              </li>
-            )}
+            {currentUser &&
+              userType === "admin" && ( // Add userType check
+                <li className="nav-item">
+                  <Link className="nav-link" to="/admin">
+                    Admin Only Screen
+                  </Link>
+                </li>
+              )}
           </ul>
         </div>
       </div>
