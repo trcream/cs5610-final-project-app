@@ -52,7 +52,7 @@ function App() {
                   <Route path="/register" element={<RegisterScreen />} />
                   <Route path="/Users" element={<UserList />} />
                   <Route path="/Reviews" element={<ReviewsScreen />} />
-                  <Route path="/Details/:uid" element={<MovieDetails />} />
+                  <Route path="/Details/:imdbID" element={<MovieDetails />} />
 
                   {/* Login/ Register here */}
                 </Routes>
