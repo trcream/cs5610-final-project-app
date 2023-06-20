@@ -25,16 +25,17 @@ const WhatsHappening = () => {
 
   const dispatch = useDispatch();
   const tuitClickHandler = () => {
-    const newTuit = {
-      title: whatsHappening,
-      // Passing in the current user id
-      userId: currentUser._id,
-      username: currentUser.username,
-
-      // tuit: whatsHappening,
-    };
-    dispatch(createTuitThunk(newTuit));
-    setWhatsHappening("");
+    if (currentUser) {
+      const newTuit = {
+        title: whatsHappening,
+        userId: currentUser._id,
+        username: currentUser.username,
+      };
+      dispatch(createTuitThunk(newTuit));
+      setWhatsHappening("");
+    } else {
+      alert("Please login or register to submit a review.");
+    }
   };
   return (
     <div className="row mt-2 mb-2">

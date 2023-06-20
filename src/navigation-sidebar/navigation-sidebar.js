@@ -16,7 +16,7 @@ const NavigationSidebar = () => {
   const [, active] = pathname.split("/");
   const links = [
     { label: "Home", icon: faHome },
-    { label: "Explore", icon: faGlobe },
+    // { label: "Explore", icon: faGlobe },
     { label: "Search", icon: faSearch },
     { label: "Movies", icon: faFilm },
     { label: "Profile", icon: faUser },

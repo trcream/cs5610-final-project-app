@@ -16,8 +16,9 @@ import RegisterScreen from "./register-screen";
 import GetUserByIdPage from "./profile-screen-uid";
 import UserList from "./users-screen";
 import ReviewsScreen from "./reviews-screen";
-import store from "../src/store.js";
+import MovieDetails from "./details-screen";
 
+import store from "../src/store.js";
 import Nav from "./nav";
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
                   <Route path="/register" element={<RegisterScreen />} />
                   <Route path="/Users" element={<UserList />} />
                   <Route path="/Reviews" element={<ReviewsScreen />} />
+                  <Route path="/Details/:uid" element={<MovieDetails />} />
 
                   {/* Login/ Register here */}
                 </Routes>
