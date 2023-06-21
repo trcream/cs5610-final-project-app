@@ -17,6 +17,7 @@ import GetUserByIdPage from "./profile-screen-uid";
 import UserList from "./users-screen";
 import ReviewsScreen from "./reviews-screen";
 import MovieDetails from "./details-screen";
+import MoviesScreen from "./movies-screen";
 
 import store from "../src/store.js";
 import Nav from "./nav";
@@ -48,6 +49,8 @@ function App() {
                   <Route path="/Profile" element={<ProfileScreen />} />
                   <Route path="/Profile/:uid" element={<GetUserByIdPage />} />
                   <Route path="/Search" element={<SearchScreen />} />
+                  <Route path="/search/:criteria" element={<SearchScreen />} />
+                  <Route path="/Movies" element={<MoviesScreen />} />
                   <Route path="/login" element={<LoginScreen />} />
                   <Route path="/register" element={<RegisterScreen />} />
                   <Route path="/Users" element={<UserList />} />

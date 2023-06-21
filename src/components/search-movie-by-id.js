@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import WhatsHappening from "./whats-happening";
 
+import ReviewsByMovieId from "./reviews-by-movie-id";
+
 const MovieSearchById = () => {
   const { imdbID } = useParams();
   const [movie, setMovie] = useState(null);
@@ -71,6 +73,12 @@ const MovieSearchById = () => {
             <div className="col-12">
               <h3> Review the Movie</h3>
               <WhatsHappening movieData={movie} />
+            </div>
+            {/* <div className="col-12">
+              <h1>Users who liked this move</h1>
+            </div> */}
+            <div className="col-12">
+              <ReviewsByMovieId movieData={movie} />
             </div>
           </div>
         </div>

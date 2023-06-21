@@ -50,7 +50,7 @@ const WhatsHappening = ({ movieData }) => {
         language: movieData.Language,
         metascore: movieData.Metascore,
         imdbRating: movieData.imdbRating,
-        _id: currentUser._id,
+        // _id: currentUser._id,
       };
       createMovie(newMovie);
       dispatch(createTuitThunk(newTuit));

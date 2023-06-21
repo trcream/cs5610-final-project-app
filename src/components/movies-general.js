@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const MovieSearchByYear = () => {
-  // gettting the search criteria from the URL
-  const location = useLocation();
-  // Looking at the search params and getting the ones that match the criteria
-  const searchCriteria =
-    new URLSearchParams(location.search).get("criteria") || "";
-
-  const [title, setTitle] = useState(searchCriteria);
+const MoviesGeneralSearch = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleSearch = () => {
+  useEffect(() => {
     setLoading(true);
     setError(null);
 
-    const apiUrl = `https://www.omdbapi.com/?apikey=4baef882&type=movie&s=${title}`;
+    // Displaying a list of random movies for the users to see
+    const apiUrl = `https://www.omdbapi.com/?apikey=4baef882&type=movie&s=random&page=1`;
 
     fetch(apiUrl)
       .then((response) => response.json())
@@ -33,32 +27,11 @@ const MovieSearchByYear = () => {
         setError(error.message);
         setLoading(false);
       });
-
-    const searchUrl = `/search?criteria=${encodeURIComponent(title)}`;
-    window.history.pushState(null, "", searchUrl);
-  };
-
-  useEffect(() => {
-    if (searchCriteria) {
-      handleSearch();
-    }
   }, []);
 
   return (
     <div>
-      <h2>Movie Search</h2>
-      <div>
-        <label>Search Movie by Title: </label>
-        <input
-          className="mx-1"
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <button onClick={handleSearch} className="btn btn-primary bg-dark">
-          Search
-        </button>
-      </div>
+      <h2>Random Movie Search</h2>
 
       {loading ? (
         <div>Loading...</div>
@@ -93,4 +66,4 @@ const MovieSearchByYear = () => {
   );
 };
 
-export default MovieSearchByYear;
+export default MoviesGeneralSearch;
