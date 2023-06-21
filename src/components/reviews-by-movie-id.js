@@ -30,9 +30,11 @@ const ReviewsByMovieId = ({ movieData }) => {
   return (
     <>
       {/* Conditionally render based on if a user is logged in */}
+      <h4>Users that have reviewed: {movieData.Title}</h4>
+      <p>Must be logged in to see:</p>
+
       {currentUser && (
         <>
-          <h4>Users that have reviewed {movieData.Title}</h4>
           <ul className="list-group">
             {userReviews.map((tuit) => (
               <li className="list-group-item" key={tuit._id}>

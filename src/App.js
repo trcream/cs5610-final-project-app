@@ -18,6 +18,7 @@ import UserList from "./users-screen";
 import ReviewsScreen from "./reviews-screen";
 import MovieDetails from "./details-screen";
 import MoviesScreen from "./movies-screen";
+import SideBar from "./right-side-bar";
 
 import store from "../src/store.js";
 import Nav from "./nav";
@@ -61,7 +62,7 @@ function App() {
                 </Routes>
               </div>
               <div className="col-3">
-                Who to follow or movies, etc.
+                <SideBar />
                 {/* <WhoToFollowList />
               <h1>Who to follow or recent reviews</h1> */}
               </div>

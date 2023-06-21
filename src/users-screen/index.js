@@ -52,12 +52,20 @@ const UserList = () => {
               >
                 Follow
               </button>
-              <Link
-                to={`/Profile/${user._id}`}
-                className="btn btn-primary ml-2"
-              >
-                View Profile
-              </Link>
+              {currentUser ? (
+                <Link to={`/Profile/${user._id}`} className="btn btn-primary">
+                  Profile
+                </Link>
+              ) : (
+                <button
+                  className="btn btn-primary "
+                  onClick={() =>
+                    alert("Please log in or register to view profile.")
+                  }
+                >
+                  Profile
+                </button>
+              )}
             </div>
           </li>
         ))}

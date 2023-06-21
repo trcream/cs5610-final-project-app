@@ -4,7 +4,7 @@ import WhatsHappening from "../components/whats-happening";
 function ReviewsScreen() {
   return (
     <div>
-      <WhatsHappening />
+      {/* <WhatsHappening /> */}
       <TuitList />
     </div>
   );

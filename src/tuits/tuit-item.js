@@ -6,6 +6,7 @@ import { BiX } from "react-icons/bi";
 import { deleteTuitThunk } from "../services/tuits-thunks";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const TuitItem = ({ tuit }) => {
   const { currentUser } = useSelector((state) => state.user);
@@ -77,9 +78,15 @@ const TuitItem = ({ tuit }) => {
                 </div>
               )}
             </div>
-            <span className="fw-bold">{tuit.username}</span>{" "}
+            <span className="fw-bold">Username: {tuit.username}</span>{" "}
             <i className="fa-solid fa-circle-check text-primary"></i> @
-            {tuit.userName} - {tuit.time} - IMDB Movie - {tuit.imdbID}
+            {tuit.userName} - {tuit.time} - IMDB Movie Id - {tuit.imdbID}{" "}
+            {/* <Link
+              to={`/Profile/${currentUser._id}`}
+              className="btn btn-primary ml-2"
+            >
+              View Profile
+            </Link> */}
           </div>
 
           <div>{tuit.title}</div>

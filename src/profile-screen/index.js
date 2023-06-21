@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import UserReviews from "../components/user-reviews-component";
 import {
   profileThunk,
   logoutThunk,
@@ -117,6 +118,12 @@ function ProfileScreen() {
         <div className="col-12 mb-2">
           {" "}
           <FollowedByList />
+        </div>
+      </div>
+      <div className="container">
+        <div className="col-12 mb-2">
+          {" "}
+          <UserReviews />
         </div>
       </div>
     </div>
