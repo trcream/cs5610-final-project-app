@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import WhatsHappening from "./whats-happening";
 
 const MovieSearchById = () => {
   const { imdbID } = useParams();
@@ -49,9 +50,27 @@ const MovieSearchById = () => {
             </div>
             <div className="col-9">
               <h4>{movie.Title}</h4>
-              {movie.Year}
-              <br></br>
-              Imdb Id: {movie.imdbID}
+
+              <ul>
+                <li>Release Year: {movie.Year}</li>
+                <li>Rated: {movie.Rated}</li>
+                <li>Runtime: {movie.Runtime}</li>
+                <li>Genre: {movie.Genre}</li>
+                <li>Director: {movie.Director}</li>
+                <li>Writer: {movie.Writer}</li>
+                <li>Actors: {movie.Actors}</li>
+                <li>Plot: {movie.Plot}</li>
+                <li>Language: {movie.Language}</li>
+                <li>Metascore: {movie.Metascore}</li>
+                <li>IMDb Rating: {movie.imdbRating}</li>
+                <li>IMDb ID: {movie.imdbID}</li>
+              </ul>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12">
+              <h3> Review the Movie</h3>
+              <WhatsHappening movieData={movie} />
             </div>
           </div>
         </div>

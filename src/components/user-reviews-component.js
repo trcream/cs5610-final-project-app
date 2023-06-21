@@ -34,7 +34,7 @@ const UserReviews = () => {
       {/* Conditionally render based on if a user is logged in */}
       {currentUser && (
         <>
-          <h2>Your Reviews for Username: {currentUser.username}</h2>
+          <h4>Your Reviews for Username: {currentUser.username}</h4>
           <ul className="list-group">
             {userReviews.map((tuit) => (
               <li className="list-group-item" key={tuit._id}>
@@ -42,8 +42,9 @@ const UserReviews = () => {
                   <div className="col-1">
                     <img
                       width={50}
-                      className="rounded-circle ratio"
-                      src={`/images/${tuit.image}`}
+                      // className="rounded-circle ratio"
+                      // src={`/images/${tuit.image}`}
+                      src={tuit.image}
                       alt="Tuit Item"
                     />
                   </div>

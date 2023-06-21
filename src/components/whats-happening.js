@@ -12,11 +12,13 @@ import { useSelector } from "react-redux";
 //  importing the create tuit reducer
 // import { createTuit, deleteTuit } from "./reducers/tuits-reducer";
 import { createTuitThunk } from "../services/tuits-thunks";
+import { createMovie } from "../services/movies-service";
 
 // Used to dispatch actions to the store
 import { useDispatch } from "react-redux";
 
-const WhatsHappening = () => {
+const WhatsHappening = ({ movieData }) => {
+  // alert("WhatsHappening");
   // Setting state to an empty string initially
   let [whatsHappening, setWhatsHappening] = useState("");
   // Get the current user from the store
@@ -30,17 +32,43 @@ const WhatsHappening = () => {
         title: whatsHappening,
         userId: currentUser._id,
         username: currentUser.username,
+        imdbID: movieData.imdbID,
+        image: movieData.Poster,
       };
+      const newMovie = {
+        title: movieData.Title,
+        imdbID: movieData.imdbID,
+        poster: movieData.Poster,
+        year: movieData.Year,
+        rated: movieData.Rated,
+        runtime: movieData.Runtime,
+        genre: movieData.Genre,
+        director: movieData.Director,
+        writer: movieData.Writer,
+        actors: movieData.Actors,
+        plot: movieData.Plot,
+        language: movieData.Language,
+        metascore: movieData.Metascore,
+        imdbRating: movieData.imdbRating,
+        _id: currentUser._id,
+      };
+      createMovie(newMovie);
       dispatch(createTuitThunk(newTuit));
       setWhatsHappening("");
     } else {
       alert("Please login or register to submit a review.");
     }
   };
+
+  if (!movieData) {
+    return <div>No movie data available.</div>;
+  }
+  // alert(movieData.Year);
+
   return (
     <div className="row mt-2 mb-2">
       <div className="col-auto">
-        <img src="/images/spacex.png" width={60} />
+        <img src={movieData.Poster} width={60} />
       </div>
       <div className="col-10">
         <textarea

@@ -36,8 +36,9 @@ const MostRecentReviews = () => {
                 <div className="col-1">
                   <img
                     width={50}
-                    className="rounded-circle ratio"
-                    src={`/images/${tuit.image}`}
+                    // className="rounded-circle ratio"
+                    // src={`/images/${tuit.image}`}
+                    src={tuit.image}
                     alt="Tuit Item"
                   />
                 </div>
