@@ -58,7 +58,7 @@ const UserList = () => {
                 </Link>
               ) : (
                 <button
-                  className="btn btn-primary "
+                  className="btn btn-primary btn-dark"
                   onClick={() =>
                     alert("Please log in or register to view profile.")
                   }

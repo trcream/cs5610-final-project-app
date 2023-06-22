@@ -43,7 +43,7 @@ function App() {
               <div className="col-2">
                 <NavigationSidebar />
               </div>
-              <div className="col-7">
+              <div className="col-lg-7  col-md-9 col-sm-9">
                 <Routes>
                   <Route path="/" element={<Navigate to="/home" />} />
                   <Route path="/home" element={<HomeScreen />} />
@@ -61,7 +61,7 @@ function App() {
                   {/* Login/ Register here */}
                 </Routes>
               </div>
-              <div className="col-3">
+              <div className="col-3  d-none d-md-block">
                 <SideBar />
                 {/* <WhoToFollowList />
               <h1>Who to follow or recent reviews</h1> */}

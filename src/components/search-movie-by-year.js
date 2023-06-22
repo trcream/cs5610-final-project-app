@@ -50,12 +50,17 @@ const MovieSearchByYear = () => {
       <div>
         <label>Search Movie by Title: </label>
         <input
+          for="search"
           className="mx-1"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button onClick={handleSearch} className="btn btn-primary bg-dark">
+        <button
+          onClick={handleSearch}
+          id="search"
+          className="btn btn-primary btn-dark"
+        >
           Search
         </button>
       </div>
@@ -81,7 +86,12 @@ const MovieSearchByYear = () => {
                     <h4>{movie.Title}</h4>
                     <p>{movie.Year}</p>
                     <p>Imdb Id: {movie.imdbID}</p>
-                    <Link to={`/details/${movie.imdbID}`}>View Details</Link>
+                    <Link
+                      className="btn btn-primary btn-dark float-right"
+                      to={`/details/${movie.imdbID}`}
+                    >
+                      View Details
+                    </Link>
                   </div>
                 </div>
               </li>

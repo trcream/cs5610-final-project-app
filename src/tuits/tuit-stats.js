@@ -59,13 +59,13 @@ const TuitStats = ({ tuit }) => {
         {currentUser ? (
           <Link
             to={`/Profile/${currentUser._id}`}
-            className="btn btn-primary btn-sm"
+            className="btn btn-primary btn-sm btn-dark"
           >
             Profile
           </Link>
         ) : (
           <button
-            className="btn btn-primary btn-sm"
+            className="btn btn-primary btn-sm btn-dark"
             onClick={() => alert("Please log in or register to view profile.")}
           >
             Profile

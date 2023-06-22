@@ -36,7 +36,7 @@ function LoginScreen() {
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
-      <button className="btn btn-primary mt-2" onClick={handleLogin}>
+      <button className="btn btn-primary btn-dark mt-2" onClick={handleLogin}>
         Login
       </button>
     </div>

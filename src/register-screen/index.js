@@ -98,7 +98,10 @@ function RegisterScreen() {
           </label>
         </div>
       </div>
-      <button className="btn btn-primary mt-2" onClick={handleRegister}>
+      <button
+        className="btn btn-primary btn-dark mt-2"
+        onClick={handleRegister}
+      >
         Register
       </button>
     </div>

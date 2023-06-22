@@ -34,7 +34,7 @@ const FollowedByList = () => {
             Last Name: {user.lastName} <br />
             <Link
               to={`/Profile/${user._id}`}
-              className="btn btn-primary float-right"
+              className="btn btn-primary btn-dark float-right"
             >
               View Profile
             </Link>
