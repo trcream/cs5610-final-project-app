@@ -12,11 +12,13 @@ const FollowedUsersList = () => {
         const user = await getUserById(currentUser._id);
         const followedUserIds = user.following;
 
-        const followedUsers = await Promise.all(
+        const fetchedUsers = await Promise.all(
           followedUserIds.map((userId) => getUserById(userId))
         );
 
-        setFollowedUsers(followedUsers);
+        const validUsers = fetchedUsers.filter((user) => user !== null);
+
+        setFollowedUsers(validUsers);
       }
     };
 
@@ -29,9 +31,9 @@ const FollowedUsersList = () => {
       <ul>
         {followedUsers.map((user) => (
           <li key={user._id}>
-            username: {user.username} <br></br>
-            First Name: {user.firstName} <br></br>
-            Last Name: {user.lastName} <br></br>
+            username: {user.username} <br />
+            First Name: {user.firstName} <br />
+            Last Name: {user.lastName} <br />
           </li>
         ))}
       </ul>

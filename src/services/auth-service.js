@@ -92,3 +92,9 @@ export const unfollowUser = async (uid, otherUserId) => {
   );
   return response.data;
 };
+
+export const deleteUser = async (userId) => {
+  alert("Delete User Service Called" + userId);
+  const response = await api.delete(`${USERS_URL}/${userId}`);
+  return response.data;
+};

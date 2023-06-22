@@ -5,8 +5,9 @@ import { profileThunk } from "../services/auth-thunks";
 import { updateUserThunk } from "../services/auth-thunks";
 import { registerThunk } from "../services/auth-thunks";
 import { getUserByIdThunk } from "../services/auth-thunks";
-import { followUserThunk } from "../services/auth-thunks";
-import { unfollowUserThunk } from "../services/auth-thunks";
+// import { followUserThunk } from "../services/auth-thunks";
+// import { unfollowUserThunk } from "../services/auth-thunks";
+import { deleteUserThunk } from "../services/auth-thunks";
 
 // thunk posts the tuit data to the server the with corresponding service
 // The reducer is listening to the action and updates the state,
@@ -52,6 +53,14 @@ const authSlice = createSlice({
     //   console.log("unfollowUserThunk payload is: " + JSON.stringify(payload));
     //   state.currentUser = payload;
     // },
+    [deleteUserThunk.fulfilled]: (state, { payload }) => {
+      console.log("deleteUserThunk payload is: " + JSON.stringify(payload));
+      state.users = state.users.filter(
+        (user) => user._id !== payload.deletedUserId
+      );
+
+      // state.users = payload;
+    },
   },
 });
 export default authSlice.reducer;

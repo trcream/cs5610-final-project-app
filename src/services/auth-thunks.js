@@ -70,3 +70,11 @@ export const unfollowUserThunk = createAsyncThunk(
     return data;
   }
 );
+
+export const deleteUserThunk = createAsyncThunk(
+  "user/deleteUser",
+  async (userId) => {
+    const data = await authService.deleteUser(userId);
+    return data;
+  }
+);
