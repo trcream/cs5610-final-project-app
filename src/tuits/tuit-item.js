@@ -55,16 +55,16 @@ const TuitItem = ({ tuit }) => {
   return (
     <li className="list-group-item">
       <div className="row">
-        <div className="col-1">
+        <div className="col-sm-2 col-md-2">
           <img
-            width={50}
-            className="ratio"
+            width={75}
+            // className="ratio img-fluid"
             // src={`/images/${tuit.image}`}
             src={tuit.image}
             alt="Tuit Item"
           />
         </div>
-        <div className="col-11">
+        <div className="col-sm-10 col-md-10">
           <div>
             {/* Only showing delete if the user is an admin */}
             {canDelete && (

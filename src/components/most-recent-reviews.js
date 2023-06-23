@@ -33,16 +33,17 @@ const MostRecentReviews = () => {
           {recentReviews.map((tuit) => (
             <li className="list-group-item" key={tuit._id}>
               <div className="row">
-                <div className="col-1">
+                <div className="col-sm-2 col-md-2">
                   <img
-                    width={50}
+                    width={75}
                     // className="rounded-circle ratio"
                     // src={`/images/${tuit.image}`}
+                    // className="ratio img-fluid"
                     src={tuit.image}
                     alt="Tuit Item"
                   />
                 </div>
-                <div className="col-11">
+                <div className="col-sm-10 col-md-10 d-flex flex-column">
                   <div>
                     {/* <BiX
                       className="float-end"
@@ -52,8 +53,10 @@ const MostRecentReviews = () => {
                     <i className="fa-solid fa-circle-check text-primary"></i> @
                     {tuit.userName} - {tuit.time}
                   </div>
-                  <div>{tuit.title}</div>
-                  <TuitStats tuit={tuit} />
+                  <div className="mt-auto">
+                    {tuit.title}
+                    <TuitStats tuit={tuit} />
+                  </div>
                 </div>
               </div>
             </li>

@@ -32,21 +32,41 @@ const UserReviews = () => {
   return (
     <>
       {currentUser && (
-        <>
-          <h4>Your Reviews for Username: {currentUser.username}</h4>
-          <ul className="list-group">
-            {tuits.map(
-              (tuit) =>
-                currentUser._id === tuit.userId && (
-                  <TuitItem
-                    key={tuit._id}
-                    tuit={tuit}
-                    deleteTuitHandler={deleteTuitHandler}
-                  />
-                )
-            )}
-          </ul>
-        </>
+        <div className="row">
+          <div className="col">
+            <h4>Your Reviews for Username: {currentUser.username}</h4>
+            <ul className="list-group">
+              {tuits.map(
+                (tuit) =>
+                  currentUser._id === tuit.userId && (
+                    <li className="list-group-item" key={tuit._id}>
+                      <div className="row">
+                        <div className="col-sm-2 col-md-2">
+                          <img
+                            width={75}
+                            src={tuit.image}
+                            // className="ratio img-fluid"
+                            alt="Tuit Item"
+                          />
+                        </div>
+                        <div className="col-sm-10 col-md-10 d-flex flex-column">
+                          <div>
+                            <span className="fw-bold">{tuit.username}</span>{" "}
+                            <i className="fa-solid fa-circle-check text-primary"></i>{" "}
+                            @{tuit.userName} - {tuit.time}
+                          </div>
+                          <div className="mt-auto">
+                            {tuit.title}
+                            <TuitStats tuit={tuit} />
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  )
+              )}
+            </ul>
+          </div>
+        </div>
       )}
     </>
   );

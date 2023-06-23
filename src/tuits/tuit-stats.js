@@ -10,6 +10,8 @@ const TuitStats = ({ tuit }) => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
 
+  const isCritic = currentUser?.userType === "critic";
+
   return (
     <div className="row">
       <div className="col-2 mt-2">
@@ -23,10 +25,10 @@ const TuitStats = ({ tuit }) => {
         <FaHeart
           className="text-danger"
           onClick={() => {
-            if (currentUser) {
+            if (currentUser && isCritic) {
               dispatch(updateTuitThunk({ ...tuit, likes: tuit.likes + 1 }));
             } else {
-              alert("Please log in or register to like tuits!");
+              alert("Must be a critic to like tuits!");
             }
           }}
 
@@ -41,12 +43,12 @@ const TuitStats = ({ tuit }) => {
         <FaThumbsDown
           // className="text-danger"
           onClick={() => {
-            if (currentUser) {
+            if (currentUser && isCritic) {
               dispatch(
                 updateTuitThunk({ ...tuit, dislikes: tuit.dislikes + 1 })
               );
             } else {
-              alert("Please log in or register to dislike tuits!");
+              alert("Must be a critic to dislike tuits!");
             }
           }}
           // onClick={() =>
