@@ -55,6 +55,14 @@ function Nav() {
                   </Link>
                 </li>
               )}
+            {currentUser &&
+              userType === "critic" && ( // Add userType check
+                <li className="nav-item">
+                  <Link className="nav-link" to="/critic">
+                    Special Critic Review
+                  </Link>
+                </li>
+              )}
           </ul>
         </div>
       </div>

@@ -26,26 +26,32 @@ const FollowedByList = () => {
   return (
     <div>
       <h1>You are followed by</h1>
-      <ul>
+      <ul className="list-group flex-wrap">
         {users.map((user) => (
-          <li key={user._id}>
-            Username: {user.username} <br />
-            First Name: {user.firstName} <br />
-            Last Name: {user.lastName} <br />
-            <Link
-              to={`/Profile/${user._id}`}
-              className="btn btn-primary btn-dark float-right"
-            >
-              View Profile
-            </Link>
-            {/* <ul>
-              {user.following.map((followingUserId) => (
-                <li key={followingUserId}>
-                  id: {followingUserId} <br />
-                </li>
-              ))}
-
-            </ul> */}
+          <li
+            key={user._id}
+            className="list-group-item d-flex align-items-start"
+          >
+            <div style={{ flex: "1" }}>
+              <p>
+                <b>Username: </b>
+                {user.username}
+              </p>
+              <p>
+                <b>First Name:</b> {user.firstName}
+              </p>
+              <p>
+                <b>Last Name:</b> {user.lastName}
+              </p>
+            </div>
+            <div>
+              <Link
+                to={`/Profile/${user._id}`}
+                className="btn btn-primary btn-dark"
+              >
+                View Profile
+              </Link>
+            </div>
           </li>
         ))}
       </ul>

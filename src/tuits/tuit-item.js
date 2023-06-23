@@ -40,12 +40,17 @@ const TuitItem = ({ tuit }) => {
   }, [imdbID]);
 
   const userType = currentUser ? currentUser.userType : "";
+  const currentUserId = currentUser ? currentUser._id : "";
 
   const dispatch = useDispatch();
   const deleteTuitHandler = (id) => {
     dispatch(deleteTuitThunk(id));
     // dispatch(deleteTuit(id));
   };
+
+  const canDelete = userType === "admin" || currentUserId === tuit.userId;
+  // alert("tuit user id " + tuit.userId);
+  // alert("current user id " + currentUserId);
 
   return (
     <li className="list-group-item">
@@ -62,7 +67,7 @@ const TuitItem = ({ tuit }) => {
         <div className="col-11">
           <div>
             {/* Only showing delete if the user is an admin */}
-            {userType === "admin" && (
+            {canDelete && (
               <BiX
                 className="float-end"
                 onClick={() => deleteTuitHandler(tuit._id)}
