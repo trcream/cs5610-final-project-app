@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../services/auth-thunks";
+import { createAdmin } from "../services/admin-service.js";
+import { createCritic } from "../services/critics-service.js";
 
 function RegisterScreen() {
   const [username, setUsername] = useState("");
@@ -17,6 +19,28 @@ function RegisterScreen() {
       await dispatch(
         registerThunk({ username, password, firstName, lastName, userType })
       );
+      navigate("/login");
+    } catch (e) {
+      alert(e);
+    }
+    try {
+      if (userType === "admin") {
+        await createAdmin({
+          username,
+          password,
+          firstName,
+          lastName,
+          userType,
+        });
+      } else if (userType === "critic") {
+        await createCritic({
+          username,
+          password,
+          firstName,
+          lastName,
+          userType,
+        });
+      }
       navigate("/login");
     } catch (e) {
       alert(e);
