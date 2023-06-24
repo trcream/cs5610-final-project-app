@@ -51,6 +51,7 @@ const AdminUserList = () => {
               UserName: {user.username} <br />
               First Name: {user.firstName} <br />
               Last Name: {user.lastName} <br />
+              User Type: {user.userType} <br />
             </div>
             <div>
               <button

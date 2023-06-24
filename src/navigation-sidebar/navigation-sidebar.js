@@ -9,6 +9,7 @@ import {
   faUser,
   faUsers,
   faStar,
+  faPen,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 
@@ -23,6 +24,7 @@ const NavigationSidebar = () => {
     { label: "Profile", icon: faUser },
     { label: "Users", icon: faUsers },
     { label: "Reviews", icon: faStar },
+    { label: "Critics", icon: faPen },
   ];
 
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -107,6 +109,15 @@ const NavigationSidebar = () => {
           <span className="d-none d-md-inline">Reviews</span>
         </Link>
       )}
+      <Link
+        to="/Critics"
+        className={`list-group-item text-capitalize ${
+          active === "Users" ? "active bg-dark" : ""
+        }`}
+      >
+        <FontAwesomeIcon icon={faPen} style={{ marginRight: "0.75rem" }} />
+        <span className="d-none d-md-inline">Critics</span>
+      </Link>
     </div>
   );
 };
