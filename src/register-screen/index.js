@@ -4,13 +4,16 @@ import { useDispatch } from "react-redux";
 import { registerThunk } from "../services/auth-thunks";
 import { createAdmin } from "../services/admin-service.js";
 import { createCritic } from "../services/critics-service.js";
+import { createCriticThunk } from "../services/critic-thunk";
 
 function RegisterScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [userType, setUserType] = useState("user"); // Default value set to "user"
+  const [userType, setUserType] = useState("user");
+  const [bio, setBio] = useState(""); // New state for bio
+  const [profilePic, setProfilePic] = useState(""); // New state for profile picture
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -33,18 +36,52 @@ function RegisterScreen() {
           userType,
         });
       } else if (userType === "critic") {
-        await createCritic({
-          username,
-          password,
-          firstName,
-          lastName,
-          userType,
-        });
+        console.log("createCriticThunk called from register-screen");
+        await dispatch(
+          createCriticThunk({
+            username,
+            password,
+            firstName,
+            lastName,
+            userType,
+            bio,
+            profilePic,
+          })
+        );
       }
       navigate("/login");
     } catch (e) {
       alert(e);
     }
+  };
+
+  // Helper function to conditionally render additional options for bio and profile picture
+  const renderCriticOptions = () => {
+    if (userType === "critic") {
+      return (
+        <>
+          <div className="mt-2">
+            <label>Bio</label>
+            <input
+              className="form-control"
+              type="text"
+              value={bio}
+              onChange={(event) => setBio(event.target.value)}
+            />
+          </div>
+          <div className="mt-2">
+            <label>Profile Picture</label>
+            <input
+              className="form-control"
+              type="text"
+              value={profilePic}
+              onChange={(event) => setProfilePic(event.target.value)}
+            />
+          </div>
+        </>
+      );
+    }
+    return null;
   };
 
   return (
@@ -122,6 +159,7 @@ function RegisterScreen() {
           </label>
         </div>
       </div>
+      {renderCriticOptions()} {/* Render additional options for critic */}
       <button
         className="btn btn-primary btn-dark mt-2"
         onClick={handleRegister}

@@ -20,6 +20,7 @@ import MovieDetails from "./details-screen";
 import MoviesScreen from "./movies-screen";
 import SideBar from "./right-side-bar";
 import AdminUserList from "./admin-only-screen";
+import CriticProfileScreen from "./critic-profile-screen.js";
 
 import store from "../src/store.js";
 import Nav from "./nav";
@@ -59,6 +60,7 @@ function App() {
                   <Route path="/Reviews" element={<ReviewsScreen />} />
                   <Route path="/Details/:imdbID" element={<MovieDetails />} />
                   <Route path="/admin" element={<AdminUserList />} />
+                  <Route path="/critic" element={<CriticProfileScreen />} />
 
                   {/* Login/ Register here */}
                 </Routes>

@@ -7,7 +7,7 @@ function Nav() {
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  const firstName = currentUser ? currentUser.firstName : "";
+  // const firstName = currentUser ? currentUser.firstName : "";
   const userType = currentUser ? currentUser.userType : "";
 
   console.log(`current user is: ${userType}`);
@@ -59,7 +59,7 @@ function Nav() {
               userType === "critic" && ( // Add userType check
                 <li className="nav-item">
                   <Link className="nav-link" to="/critic">
-                    Special Critic Review
+                    Update Critic Profile
                   </Link>
                 </li>
               )}
