@@ -11,6 +11,9 @@ import { useSelector } from "react-redux";
 import { createTuitThunk } from "../services/tuits-thunks";
 import { createMovie } from "../services/movies-service";
 
+// Added to help create the actors for actors array and model
+import { createActor, findActorByName } from "../services/actors-service";
+
 // Used to dispatch actions to the store
 import { useDispatch } from "react-redux";
 
@@ -33,6 +36,16 @@ const WhatsHappening = ({ movieData }) => {
         image: movieData.Poster,
         reviewedBy: [currentUser.username],
       };
+
+      const actorNames = movieData.Actors.split(", ");
+      alert(actorNames);
+      // const actorIds = [];
+
+      for (let actorName of actorNames) {
+        console.log(actorName);
+        createActor(actorName, movieData.imdbID);
+      }
+
       const newMovie = {
         title: movieData.Title,
         imdbID: movieData.imdbID,
