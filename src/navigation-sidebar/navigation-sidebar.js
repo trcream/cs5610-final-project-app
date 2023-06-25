@@ -112,7 +112,7 @@ const NavigationSidebar = () => {
       <Link
         to="/Critics"
         className={`list-group-item text-capitalize ${
-          active === "Users" ? "active bg-dark" : ""
+          active === "Critics" ? "active bg-dark" : ""
         }`}
       >
         <FontAwesomeIcon icon={faPen} style={{ marginRight: "0.75rem" }} />

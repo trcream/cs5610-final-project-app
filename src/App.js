@@ -43,7 +43,7 @@ function App() {
             <Nav />
             <div className="row"></div>
             <div className="row">
-              <div className="col-2 d-none d-md-block">
+              <div className="col-lg-2  col-md-3 col-sm-3">
                 <NavigationSidebar />
               </div>
               <div className="col-lg-7  col-md-9 col-sm-9">
@@ -66,7 +66,7 @@ function App() {
                   {/* Login/ Register here */}
                 </Routes>
               </div>
-              <div className="col-3  d-none d-md-block">
+              <div className="col-lg-3 col-md-0 d-none d-lg-block">
                 <SideBar />
                 {/* <WhoToFollowList />
               <h1>Who to follow or recent reviews</h1> */}

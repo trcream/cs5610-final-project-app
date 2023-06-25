@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getUserById } from "../services/auth-service";
 import UserReviews from "../components/user-reviews-component";
+import ReviewsByProfile from "../profile-screen/reviews-by-profile";
 
 function GetUserByIdPage() {
   const { uid } = useParams(); // Extract the user ID from the URL
@@ -41,7 +42,8 @@ function GetUserByIdPage() {
         </div>
         <div className="col-12 mb-2">
           {" "}
-          <UserReviews />
+          {/* <UserReviews /> */}
+          <ReviewsByProfile />
         </div>
       </div>
     </div>

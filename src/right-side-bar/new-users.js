@@ -47,23 +47,13 @@ const NewUsers = () => {
                     >
                       Follow
                     </button>
-                    {currentUser ? (
-                      <Link
-                        to={`/Profile/${user._id}`}
-                        className="btn btn-primary btn-dark "
-                      >
-                        Profile
-                      </Link>
-                    ) : (
-                      <button
-                        className="btn btn-primary btn-dark"
-                        onClick={() =>
-                          alert("Please log in or register to view profile.")
-                        }
-                      >
-                        Profile
-                      </button>
-                    )}
+
+                    <Link
+                      to={`/Profile/${user._id}`}
+                      className="btn btn-primary btn-dark "
+                    >
+                      Profile
+                    </Link>
                   </div>
                 </div>
               </li>

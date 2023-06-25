@@ -63,6 +63,13 @@ function Nav() {
                   </Link>
                 </li>
               )}
+            {currentUser && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/profile">
+                  Profile: {currentUser.username ? currentUser.username : ""}
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
