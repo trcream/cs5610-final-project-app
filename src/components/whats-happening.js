@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { AiOutlinePicture } from "react-icons/ai";
 import { MdGif } from "react-icons/md";
-import { MdFormatListBulleted } from "react-icons/md";
 import { BsEmojiSmile } from "react-icons/bs";
-import { FaCalendarAlt } from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import { BiBold, BiItalic } from "react-icons/bi";
 import { FiBarChart2 } from "react-icons/fi";
 import { useSelector } from "react-redux";
 
@@ -34,6 +31,7 @@ const WhatsHappening = ({ movieData }) => {
         username: currentUser.username,
         imdbID: movieData.imdbID,
         image: movieData.Poster,
+        reviewedBy: [currentUser.username],
       };
       const newMovie = {
         title: movieData.Title,
@@ -50,6 +48,7 @@ const WhatsHappening = ({ movieData }) => {
         language: movieData.Language,
         metascore: movieData.Metascore,
         imdbRating: movieData.imdbRating,
+        reviewedBy: [currentUser.username],
         // _id: currentUser._id,
       };
       createMovie(newMovie);

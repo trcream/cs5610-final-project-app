@@ -42,7 +42,7 @@ const ReviewsByMovieId = ({ movieData }) => {
                   <div className="col-1">
                     <img
                       width={50}
-                      // className="rounded-circle ratio"
+                      className="img-fluid"
                       // src={`/images/${tuit.image}`}
                       src={tuit.image}
                       alt="Tuit Item"
