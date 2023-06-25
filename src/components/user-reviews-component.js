@@ -45,7 +45,7 @@ const UserReviews = () => {
                           <img
                             width={75}
                             src={tuit.image}
-                            // className="ratio img-fluid"
+                            className="img-fluid"
                             alt="Tuit Item"
                           />
                         </div>

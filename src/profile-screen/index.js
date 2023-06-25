@@ -94,6 +94,22 @@ function ProfileScreen() {
                   }}
                 />
               </div>
+              <div>
+                <label for="password">Password: </label>
+                <input
+                  id="password"
+                  type="text"
+                  className="mx-2"
+                  value={profile.password || ""}
+                  onChange={(event) => {
+                    const newProfile = {
+                      ...profile,
+                      password: event.target.value,
+                    };
+                    setProfile(newProfile);
+                  }}
+                />
+              </div>
             </div>
           )}
           <button

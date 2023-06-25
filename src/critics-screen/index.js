@@ -27,7 +27,12 @@ const CriticsScreen = () => {
           <li key={critic._id} className="list-group-item">
             <div className="row">
               <div className="col-sm-2 col-md-2">
-                <img width={75} src={critic.profilePic} alt="Critic Profile" />
+                <img
+                  width={75}
+                  className="img-fluid"
+                  src={critic.profilePic}
+                  alt="Critic Profile"
+                />
               </div>
               <div className="col-sm-10 col-md-10">
                 Username: {critic.username}

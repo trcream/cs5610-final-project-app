@@ -38,12 +38,12 @@ const MostRecentReviews = () => {
                     width={75}
                     // className="rounded-circle ratio"
                     // src={`/images/${tuit.image}`}
-                    // className="ratio img-fluid"
+                    className="img-fluid"
                     src={tuit.image}
                     alt="Tuit Item"
                   />
                 </div>
-                <div className="col-sm-10 col-md-10 d-flex flex-column">
+                <div className="col-sm-2 col-md-10 d-flex flex-column">
                   <div>
                     {/* <BiX
                       className="float-end"

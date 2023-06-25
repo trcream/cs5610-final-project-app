@@ -43,7 +43,7 @@ function App() {
             <Nav />
             <div className="row"></div>
             <div className="row">
-              <div className="col-2">
+              <div className="col-2 d-none d-md-block">
                 <NavigationSidebar />
               </div>
               <div className="col-lg-7  col-md-9 col-sm-9">

@@ -14,6 +14,7 @@ const FollowedUsersList = () => {
         const followedUserIds = user.following;
 
         const fetchedUsers = await Promise.all(
+          // Getting array of users from array of user ids
           followedUserIds.map((userId) => getUserById(userId))
         );
 
