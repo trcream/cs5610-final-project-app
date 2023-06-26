@@ -1,6 +1,6 @@
 Uml Diagram:
 
-![UML Class Diagram](public/images/design-uml.png)
+![UML Class Diagram](./design-uml.png)
 
 Link to Lucid Chart:
 
